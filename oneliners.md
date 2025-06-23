@@ -741,3 +741,5 @@ $podCount = (kubectl top pods -l app=myapp --no-headers | Where-Object {($_ -spl
 # Backup all configmaps and secrets to files
 $date = Get-Date -Format "yyyyMMdd"; kubectl get configmaps --all-namespaces -o yaml > "configmaps-backup-$date.yaml"; kubectl get secrets --all-namespaces -o yaml > "secrets-backup-$date.yaml"
 ```
+
+---
