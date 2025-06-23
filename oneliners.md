@@ -1,4 +1,4 @@
-# One-Liners for DevOps & SysAdmin
+# Production-Grade One-Liners for DevOps & SysAdmin
 
 ## 🐧 Linux/Bash One-Liners
 
@@ -415,6 +415,9 @@ curl -s "http://jaeger:16686/api/services" | jq '.data[]' && curl -s "http://jae
 # Service dependency mapping and error rate analysis
 curl -s "http://jaeger:16686/api/dependencies?endTs=$(date +%s)000" | jq '.data[] | {parent: .parent, child: .child, callCount: .callCount}' && curl -s "http://jaeger:16686/api/traces?tags=error:true" | jq '.data | length'
 ```
+
+---
+
 
 # Jenkins: Trigger build with parameters and monitor status
 curl -X POST "http://jenkins:8080/job/myproject/buildWithParameters?token=mytoken&branch=main" && sleep 10 && curl -s "http://jenkins:8080/job/myproject/lastBuild/api/json" | jq '.result'
