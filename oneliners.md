@@ -1,4 +1,5 @@
 🔐 Security, Detection & Response
+
 📌 Monitor and block brute-force IPs from /var/log/auth.log
 
 grep 'Failed password' /var/log/auth.log | awk '{print $(NF-3)}' | sort | uniq -c | awk '$1 > 5 {print $2}' | xargs -I{} iptables -A INPUT -s {} -j DROP
